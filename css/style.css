@@ -1,1 +1,70 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+ul, li{list-style: none;}
+a{text-decoration: none; color: inherit;}
+.flex{display: flex;}
+.grid{display: grid;}
+
+body > div{padding: 10px 15px;}
+body fieldset{padding: 5px 10px;}
 body > div + div { margin-top: 50px; padding-top: 50px; border-top: 1px solid #ddd; }
+
+
+.infinite_slide .slide{width: 300px; height: 300px; margin: 20px auto; overflow: hidden;}
+.infinite_slide .slide ul{width: 500%; height: 100%; animation: infiniteSlide 10s infinite;}
+.infinite_slide .slide ul li{flex: 1; line-height: 300px; text-align: center; font-size: 35px;}
+.infinite_slide .slide ul .img1{background: turquoise;}
+.infinite_slide .slide ul .img2{background: orange;}
+.infinite_slide .slide ul .img3{background: springgreen;}
+.infinite_slide .slide ul .img4{background: palevioletred;}
+
+
+@keyframes infiniteSlide{
+    0%{margin-left: 0%;}
+    20%{margin-left: 0%;}
+    25%{margin-left: -100%;}
+    45%{margin-left: -100%;}
+    50%{margin-left: -200%;}
+    70%{margin-left: -200%;}
+    75%{margin-left: -300%;}
+    95%{margin-left: -300%;}
+    99.99999%{margin-left: -400%;}
+    100%{margin-left: -0%;}
+}
+
+.play_state .slide{position: relative; width: 900px; height: 300px; margin: 20px auto; overflow: hidden;}
+.play_state .slide ul{width: 100%; height: 100%;}
+.play_state .slide ul li{flex: 1; line-height: 300px; text-align: center;}
+.play_state .slide ul .img1{background: rgba(0, 0, 255, .3);}
+.play_state .slide ul .img2{background: rgba(0, 255, 0, .3);}
+.play_state .slide ul .img3{background: rgba(139, 0, 255, .3);}
+
+.play_state .back{position: absolute; width: 300px; height: 300px; left: 50px; top: 0; background: rgba(128, 128, 128, .5); z-index: -1;}
+.play_state .box1{animation: boxMove1 7s infinite linear;}
+.play_state .box2{animation: boxMove2 7s infinite linear;}
+
+
+/* @keyframes boxMove1{
+    0%{left: -300px;}
+    14.3%{left: 0px;}
+    28.6%{left: 300px;}
+    42.8%{left: 600px;}
+    57.1%{left: 900px;}
+    71.4%{left: 900px;}
+    85.7%{left: 900px;}
+    99.99999%{left: 900px;}
+    100%{left: -300px;}
+}
+
+@keyframes boxMove2{
+    0%{left: -300px;}
+    14.3%{left: -300px;}
+    28.6%{left: -300px;}
+    42.8%{left: -300px;}
+    57.1%{left: 0px;}
+    71.4%{left: 300px;}
+    85.7%{left: 600px;}
+    99.99999%{left: 900px;}
+    100%{left: -300px;}
+} */
+
+
