@@ -1,1 +1,304 @@
-body > div + div { margin-top: 50px; padding-top: 50px; border-top: 1px solid #ddd; }
+body>div+div {
+  margin-top: 50px;
+  padding-top: 50px;
+  border-top: 1px solid #ddd;
+}
+
+* {
+  box-sizing: border-box;
+  color: inherit;
+}
+
+html,
+body,
+body>div {
+  color: #333;
+}
+
+.flex {
+  display: flex;
+}
+
+.infiniteSlide {
+  width: 100px;
+  overflow: hidden;
+}
+
+.container1 {
+  width: 600px;
+  overflow: hidden;
+  margin-left: -100px;
+  animation: infiniteSlide 10s infinite;
+}
+
+.slideImg1,
+.slideImg2,
+.slideImg3,
+.slideImg4 {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  font-weight: bold;
+}
+
+.slideImg1 {
+  background: #059ffe;
+}
+
+.slideImg2 {
+  background: #ff9f02;
+}
+
+.slideImg3 {
+  background: #01fea0;
+}
+
+.slideImg4 {
+  background: #fd009e;
+}
+
+@keyframes infiniteSlide {
+  0% {
+    margin-left: -100px;
+  }
+
+  20% {
+    margin-left: -100px;
+  }
+
+  25% {
+    margin-left: -200px;
+  }
+
+  45% {
+    margin-left: -200px;
+  }
+
+  50% {
+    margin-left: -300px;
+  }
+
+  70% {
+    margin-left: -300px;
+  }
+
+  75% {
+    margin-left: -400px;
+  }
+
+  95% {
+    margin-left: -400px;
+  }
+
+  99.999% {
+    margin-left: -500px;
+  }
+
+  100% {
+    margin-left: -100px;
+  }
+}
+
+.play-state {
+  position: relative;
+  width: 900px;
+  overflow: hidden;
+}
+
+.stateImg1,
+.stateImg2,
+.stateImg3 {
+  width: 300px;
+  line-height: 300px;
+  text-align: center;
+}
+
+.stateImg1 {
+  background: #059ffe;
+}
+
+.stateImg2 {
+  background: #00fd9e;
+}
+
+.stateImg3 {
+  background: #a100fe;
+}
+
+.mask1,
+.mask2 {
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  background: rgba(255, 255, 255, .5);
+}
+
+.mask1 {
+  left: 300px;
+  animation: play-state1 3s linear infinite;
+}
+
+.mask2 {
+  left: -600px;
+  animation: play-state2 3s linear infinite;
+}
+
+.stateImg1:hover~.mask1,
+.stateImg1:hover~.mask2,
+.stateImg2:hover~.mask1,
+.stateImg2:hover~.mask2,
+.stateImg3:hover~.mask1,
+.stateImg3:hover~.mask2 {
+  animation-play-state: paused;
+}
+
+@keyframes play-state1 {
+  form {
+    left: 300px;
+  }
+
+  to {
+    left: 1200px;
+  }
+}
+
+@keyframes play-state2 {
+  form {
+    left: -600px;
+  }
+
+  to {
+    left: 300px;
+  }
+}
+
+.Countdown {
+  width: 200px;
+  height: 200px;
+}
+
+.cnt {
+    text-align: center;
+    line-height: 200px;
+}
+
+.cnt::before {
+    content: "";
+    animation: countDown 10s step-end infinite;
+}
+
+.cnt::after {
+    content: "";
+    display: block;
+    line-height: 0;
+    margin-top: -80px;
+    animation: end 10s step-end infinite;
+}
+
+@keyframes countDown {
+    0% {
+        content: "5";
+    }
+
+    10% {
+        content: "4";
+    }
+
+    20% {
+        content: "3";
+    }
+
+    30% {
+        content: "2";
+    }
+
+    40% {
+        content: "1";
+    }
+
+    50% {
+        content: "0";
+        color: #f00;
+    }
+}
+
+@keyframes end {
+    50% {
+        content: "카운트다운 종료";
+    }
+}
+
+.size {
+  background: #eee;
+  width: 500px;
+  height: 500px;
+  position: relative;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #ccc;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: size 5s linear infinite;
+}
+
+@keyframes size {
+    0% {
+        width: 100px;
+        height: 100px;
+    }
+
+    25% {
+        width: 100px;
+        height: 300px;
+    }
+
+    50% {
+        width: 300px;
+        height: 300px;
+    }
+
+    75% {
+        width: 100px;
+        height: 300px;
+    }
+
+    100% {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.title1,
+.title2,
+.title3 {
+    margin: 10px 0;
+}
+
+.title1,
+.title2,
+.title3,
+.content1,
+.content2,
+.content3 {
+    display: inline-block;
+    background: linear-gradient(to left, #fff 50%, #009eff 50%) right;
+    background-size: 200%;
+    transition: .3s ease-out;
+}
+
+.title1:hover,
+.title2:hover,
+.title3:hover,
+.content1:hover,
+.content2:hover,
+.content3:hover {
+    background-position: left;
+}
