@@ -1,1 +1,128 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+ul, li{list-style: none;}
+a{text-decoration: none; color: inherit;}
+.flex{display: flex;}
+.grid{display: grid;}
+
+body > div{padding: 10px 15px;}
+body fieldset{padding: 5px 10px;}
 body > div + div { margin-top: 50px; padding-top: 50px; border-top: 1px solid #ddd; }
+
+
+.infinite_slide .slide{width: 300px; height: 300px; margin: 20px auto; overflow: hidden;}
+.infinite_slide .slide ul{width: 500%; height: 100%; animation: infiniteSlide 10s infinite;}
+.infinite_slide .slide ul li{flex: 1; line-height: 300px; text-align: center; font-size: 35px;}
+.infinite_slide .slide ul .img1{background: turquoise;}
+.infinite_slide .slide ul .img2{background: orange;}
+.infinite_slide .slide ul .img3{background: springgreen;}
+.infinite_slide .slide ul .img4{background: palevioletred;}
+
+
+@keyframes infiniteSlide{
+    0%{margin-left: 0%;}
+    20%{margin-left: 0%;}
+    25%{margin-left: -100%;}
+    45%{margin-left: -100%;}
+    50%{margin-left: -200%;}
+    70%{margin-left: -200%;}
+    75%{margin-left: -300%;}
+    95%{margin-left: -300%;}
+    99.99999%{margin-left: -400%;}
+    100%{margin-left: -0%;}
+}
+
+.play_state .slide{position: relative; width: 900px; height: 300px; margin: 20px auto; overflow: hidden;}
+.play_state .slide ul{width: 100%; height: 100%;}
+.play_state .slide ul li{flex: 1; line-height: 300px; text-align: center;}
+.play_state .slide ul .img1{background: rgba(0, 0, 255, .3);}
+.play_state .slide ul .img2{background: rgba(0, 255, 0, .3);}
+.play_state .slide ul .img3{background: rgba(139, 0, 255, .3);}
+
+.play_state .back{position: absolute; width: 300px; height: 300px; left: -300px; top: 0; background: rgba(0, 0, 0, .5); z-index: 1;}
+.play_state .box1{animation: boxMove 6s infinite linear;}
+.play_state .box2{animation: boxMove 6s 3s infinite linear;}
+
+
+.play_state .back:hover{animation-play-state: paused;}
+.play_state .box1:hover~ .box2{animation-play-state: paused;}
+.play_state .slide:nth-child(2):hover .slide:nth-child(1){animation-play-state: paused;}
+
+
+
+@keyframes boxMove{
+    0%{left: -300px;}
+    16.666666%{left: 0px;}
+    33.333333%{left: 300px;}
+    49.999999%{left: 600px;}
+    66.666666%{left: 900px;}
+    83.333333%{left: 900px;}
+    99.999999%{left: 900px;}
+    100%{left: -300px;}
+}
+
+
+
+.countdown .text_box{width: 300px; height: 300px; margin: 30px auto; justify-content: center; align-items: center; flex-direction: column; border: 1px solid #333;}
+.countdown .text_box .text::before{position: absolute; width: 100%; left: 0; top: 0; text-align: center; font-weight: bold; content: '5'; animation: countdown_before 6s linear both;}
+.countdown .text_box .text{position: relative; width: 100%; height: 30px; line-height: 30px; text-align: center; font-size: 25px;}
+.countdown .text_box .text::after{position: absolute; opacity: 0; content: '카운트다운 종료'; width: 100%; margin: 0 auto; left: 0; top: 100%; white-space: nowrap; text-align: center; font-size: 20px; font-weight: bold; color: #000; z-index: 1; animation: countdown_after 6s linear both;}
+
+@keyframes countdown_before{
+    16.666666%{content: '5';}
+    33.333333%{content: '4';}
+    49.999999%{content: '3';}
+    66.666666%{content: '2';}
+    83.333333%{content: '1'; color: #000;}
+    99.999999%{content: '1'; color: #000;}
+    100%{content: '0'; color: #ff0000};
+}
+
+@keyframes countdown_after{
+    16.666666%{}
+    33.333333%{}
+    49.999999%{}
+    66.666666%{}
+    83.333333%{}
+    99.999999%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+
+
+.size fieldset{background: #eee; height: 500px;}
+.size fieldset>div.flex{width: 100%; height: 100%; justify-content: center; align-items: center;}
+.size .box{width: 100px; height: 100px; background: #fff; box-shadow:  10px 10px 10px #ccc; border-radius: 10px; animation: boxSizeChange 2s alternate-reverse infinite linear;}
+
+@keyframes boxSizeChange{
+    0%{width: 100px; height: 100px;}
+    50%{width: 100px; height: 300px;}
+    100%{width: 300px; height: 300px;}
+}
+
+
+
+.hover .text_box{padding: 20px 70px;}
+.hover .text_box h4, p{cursor: pointer;}
+.hover .text_box p{position: relative; margin: 20px 0; overflow: hidden;}
+.hover .text_box p::after{position: absolute; content: ''; display: block; width: 100%; height: 100%; top: 0; left: 0%; transform: translateX(-100%); background: rgba(0, 0, 255, .4); transition: .5s;}
+.hover .text_box p:hover::after{animation: backgroundAnimation .15s linear forwards;}
+.hover .text_box p:not(:hover)::after{animation: backgroundAnimation2 .15s linear forwards;}
+
+.hover .text_box h4{position: relative; display: inline-block; overflow: hidden;}
+.hover .text_box h4::after{position: absolute; content: ''; display: block; width: 100%; height: 100%; top: 0; left: 0%; transform: translateX(-100%); background: rgba(0, 0, 255, .4); transition: .5s;}
+.hover .text_box h4:hover::after{animation: backgroundAnimation .15s linear forwards;}
+.hover .text_box h4:not(:hover)::after{animation: backgroundAnimation2 .15s linear forwards;}
+
+
+@keyframes backgroundAnimation{
+    0%{transform: translateX(-100%);}
+    100%{transform: translateX(0%);}
+}
+
+@keyframes backgroundAnimation2{
+    0%{transform: translateX(0%);}
+    100%{transform: translateX(100%);}
+}
+
+
+
